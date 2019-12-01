@@ -14,19 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.camunda.bpm.spring.boot.example.simple;
+package org.camunda.bpm.spring.boot.app;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.Timeout;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = { SimpleApplication.class }, properties = {
-    "org.camunda.bpm.spring.boot.starter.example.simple.SimpleApplication.exitWhenFinished=false" })
-public class SimpleApplicationTest {
+import org.camunda.bpm.spring.boot.starter.annotation.EnableProcessApplication;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+
+@SpringBootApplication
+@EnableProcessApplication("mySimpleApplication")
+public class Application {
+
+
+  public static void main(final String... args) throws Exception {
+    SpringApplication.run(Application.class, args);
+  }
 
 }

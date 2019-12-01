@@ -14,22 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.camunda.bpm.spring.boot.example.simple;
+package org.camunda.bpm.spring.boot.app;
 
+import org.camunda.bpm.engine.delegate.DelegateExecution;
+import org.camunda.bpm.engine.delegate.JavaDelegate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-import org.camunda.bpm.spring.boot.starter.annotation.EnableProcessApplication;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+@Component(value = "sayHelloDelegate")
+public class SayHelloDelegate implements JavaDelegate {
 
+  private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
-@SpringBootApplication
-@EnableProcessApplication("mySimpleApplication")
-public class SimpleApplication {
-
-
-  public static void main(final String... args) throws Exception {
-    SpringApplication.run(SimpleApplication.class, args);
+  @Override
+  public void execute(DelegateExecution execution) throws Exception {
+    logger.info("executed sayHelloDelegate: {}", execution);
   }
 
 }

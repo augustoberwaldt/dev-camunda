@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.camunda.bpm.spring.boot.example.simple;
+package org.camunda.bpm.spring.boot.app;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
